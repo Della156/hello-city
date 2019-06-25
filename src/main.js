@@ -1,12 +1,38 @@
-import Vue from "vue";
-import App from "./App.vue";
-import router from "./router";
-import store from "./store";
+import icefox from 'icefox'
 
-Vue.config.productionTip = false;
+const requestPluginOptions = {
+  baseParams: {
+    baseUrl: process.env.app_base_url,
+  },
+  headers: {},
+}
 
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount("#app");
+export default {
+  title: 'hello city',
+
+  created() {
+    // 应用创建完成后的回调
+  },
+
+  plugins: [
+    // 将icefox作为应用插件使用
+    icefox,
+    // 对内置的request插件进行配置
+    ['request', requestPluginOptions],
+  ],
+
+  router: {
+    // vue-router 配置对象
+    mode: 'hash',
+    created(/*router*/) {
+      // 路由器创建完成后的回调
+    },
+  },
+
+  store: {
+    // Vuex Store 配置对象
+    created(/*store*/) {
+      // Store创建完成后的回调
+    },
+  },
+}

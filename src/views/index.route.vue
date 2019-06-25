@@ -1,0 +1,65 @@
+<template>
+  <ice-basic-layout horizontal>
+    <!-- 左侧logo+菜单 -->
+    <ice-layout-aside fixed>
+      <ice-logo-panel slot="header">
+        <img slot="logo" src="../assets/logo.png" alt="" />
+        <div slot="title">系统组件组件件</div>
+      </ice-logo-panel>
+      <ice-aside-menu :menu-items="items" router default-active="id_2" />
+    </ice-layout-aside>
+
+    <ice-layout>
+      <ice-layout-header>
+        <ice-layout horizontal>
+          <ice-aside-trigger />
+          <div style="text-align: right">header</div>
+        </ice-layout>
+      </ice-layout-header>
+      <ice-layout-content>
+        <ice-tabs-view transition scrollable />
+      </ice-layout-content>
+    </ice-layout>
+  </ice-basic-layout>
+</template>
+
+<script>
+export default {
+  name: 'index.route',
+  components: {},
+  data() {
+    return {
+      items: [
+        {
+          id: 'id_1',
+          title: '首页',
+          route: '/home',
+          icon: 'el-icon-house',
+        },
+        {
+          id: 'sub',
+          title: '文档',
+          icon: 'el-icon-notebook-1',
+          children: [{ id: 'id_2', title: '关于表格', route: '/about' }],
+        },
+        { id: 'tab', title: '笔记', route: '/detail', icon: 'el-icon-set-up' },
+        {
+          id: 'component',
+          title: '组件',
+          route: '/module',
+          icon: 'el-icon-s-promotion',
+        },
+        {
+          id: 'icon',
+          title: '图标',
+          route: '/icons',
+          icon: 'el-icon-picture-outline-round',
+        },
+        { id: 'ech', title: '图表', route: '/chart', icon: 'el-icon-s-grid' },
+        { id: 'in', title: '引导', route: '/lead', icon: 'el-icon-lollipop' },
+        { id: 'route', title: '路由嵌套', route: '/box', icon: 'el-icon-sugar' },
+      ],
+    }
+  },
+}
+</script>

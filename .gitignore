@@ -18,4 +18,13 @@ yarn-error.log*
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?
+*.sw*
+
+.project
+test/unit/coverage
+
+*.zip
+zip/
+build/
+/deploy.json
+/data/
