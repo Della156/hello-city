@@ -14,7 +14,6 @@
   />
 </template>
 <script>
-import data from '../../../data/tableData'
 export default {
   name: 'About',
   title: '关于表格',

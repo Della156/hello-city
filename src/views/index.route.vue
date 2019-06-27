@@ -1,7 +1,7 @@
 <template>
   <ice-basic-layout horizontal>
     <!-- 左侧logo+菜单 -->
-    <ice-layout-aside fixed>
+    <ice-layout-aside >
       <ice-logo-panel slot="header">
         <img slot="logo" src="../assets/logo.png" alt="" />
         <div slot="title">系统组件组件件</div>
@@ -13,8 +13,9 @@
       <ice-layout-header>
         <ice-layout horizontal>
           <ice-aside-trigger />
-          <div style="text-align: right">header</div>
         </ice-layout>
+        <i class="el-icon-edit"></i>
+        <i class="el-icon-share"></i>
       </ice-layout-header>
       <ice-layout-content>
         <ice-tabs-view transition scrollable />
