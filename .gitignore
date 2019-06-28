@@ -27,4 +27,3 @@ test/unit/coverage
 zip/
 build/
 /deploy.json
-/data/
