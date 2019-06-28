@@ -27,16 +27,15 @@ export default {
   'GET /api/article/getList': (req, res, next) => {
     const { query } = req
     const { currentPage, pageSize } = query
-    let artData = articleData.Data
     const starIndex = (currentPage - 1) * pageSize
     const lastIndex = starIndex + Number(pageSize)
-    let Data = artData.slice(starIndex, lastIndex)
-    let count = articleData.count
+    const Data = articleData.Data.slice(starIndex, lastIndex)
+    const count = articleData.count
     return {
       Data,
       count,
-      currentPage: +currentPage,
-      pageSize: +pageSize,
+      currentPage: Number(currentPage),
+      pageSize: Number(pageSize)
     }
   },
 }
