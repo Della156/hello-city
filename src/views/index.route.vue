@@ -1,68 +1,69 @@
 <template>
-    <ice-basic-layout horizontal>
-        <!-- 左侧logo+菜单 -->
-        <ice-layout-aside >
-            <ice-logo-panel slot="header">
-                <img slot="logo" src="../assets/logo.png" alt="" />
-                <div slot="title">系统组件组件件</div>
-            </ice-logo-panel>
-            <ice-aside-menu :menu-items="items" router default-active="id_2" />
-        </ice-layout-aside>
+  <ice-basic-layout horizontal>
+    <!-- 左侧logo+菜单 -->
+    <ice-layout-aside>
+      <ice-logo-panel slot="header">
+        <img slot="logo" src="../assets/logo.png" alt="" />
+        <div slot="title">系统组件组件件</div>
+      </ice-logo-panel>
+      <ice-aside-menu :menu-items="items" router default-active="id_2" />
+    </ice-layout-aside>
 
-        <ice-layout>
-            <ice-layout-header>
-                <ice-layout horizontal>
-                    <ice-aside-trigger />
-                </ice-layout>
-                <i class="el-icon-edit"></i>
-                <i class="el-icon-share"></i>
-            </ice-layout-header>
-            <ice-layout-content>
-                <ice-tabs-view transition scrollable />
-            </ice-layout-content>
+    <ice-layout>
+      <ice-layout-header>
+        <ice-layout horizontal>
+          <ice-aside-trigger />
         </ice-layout>
-    </ice-basic-layout>
+        <i class="el-icon-edit"></i>
+        <i class="el-icon-share"></i>
+      </ice-layout-header>
+      <ice-layout-content>
+        <ice-tabs-view transition scrollable />
+      </ice-layout-content>
+    </ice-layout>
+  </ice-basic-layout>
 </template>
 
 <script>
-    export default {
-        name: 'index.route',
-        components: {},
-        data() {
-            return {
-                items: [
-                    {
-                        id: 'id_1',
-                        title: '首页',
-                        route: '/home',
-                        icon: 'el-icon-house',
-                    },
-                    {
-                        id: 'sub',
-                        title: '文档',
-                        icon: 'el-icon-notebook-1',
-                    },
-                    { id: 'tab', title: '笔记', route: '/detail', icon: 'el-icon-set-up' },
-                    {
-                        id: 'component',
-                        title: '组件案例',
-                        route: '/module',
-                        icon: 'el-icon-s-promotion',
-                        children: [
-                            { id: 'id_2', title: 'tablePage', route: '/about' },
-                            { id: 'id_3', title: 'datePicker', route: '/datepicker' }],
-                    },
-                    {
-                        id: 'icon',
-                        title: '图标',
-                        route: '/icons',
-                        icon: 'el-icon-picture-outline-round',
-                    },
-                    { id: 'ech', title: '图表', route: '/chart', icon: 'el-icon-s-grid' },
-                    { id: 'in', title: '引导', route: '/lead', icon: 'el-icon-lollipop' },
-                    { id: 'route', title: '路由嵌套', route: '/box', icon: 'el-icon-sugar' },
-                ],
-            }
+export default {
+  name: 'index.route',
+  components: {},
+  data() {
+    return {
+      items: [
+        {
+          id: 'id_1',
+          title: '首页',
+          route: '/home',
+          icon: 'el-icon-house',
         },
+        {
+          id: 'sub',
+          title: '文档',
+          icon: 'el-icon-notebook-1',
+        },
+        { id: 'tab', title: '笔记', route: '/detail', icon: 'el-icon-set-up' },
+        {
+          id: 'component',
+          title: '组件案例',
+          route: '/module',
+          icon: 'el-icon-s-promotion',
+          children: [
+            { id: 'id_2', title: 'tablePage', route: '/about' },
+            { id: 'id_3', title: 'datePicker', route: '/datepicker' },
+          ],
+        },
+        {
+          id: 'icon',
+          title: '图标',
+          route: '/icons',
+          icon: 'el-icon-picture-outline-round',
+        },
+        { id: 'ech', title: '图表', route: '/chart', icon: 'el-icon-s-grid' },
+        { id: 'in', title: '引导', route: '/lead', icon: 'el-icon-lollipop' },
+        { id: 'route', title: '路由嵌套', route: '/box', icon: 'el-icon-sugar' },
+      ],
     }
+  },
+}
 </script>

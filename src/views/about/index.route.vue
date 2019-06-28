@@ -15,8 +15,8 @@
 </template>
 <script>
 export default {
-  name: 'About',
-  title: '关于表格',
+  name: 'tablePage',
+  title: 'tablePage',
 
   data() {
     return {
