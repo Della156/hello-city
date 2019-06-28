@@ -65,7 +65,7 @@ export default {
   methods: {
     getListApi(params) {
       return this.$http({
-        url: '/api/article/getList',
+        url: '{baseUrl}/api/article/getList',
         method: 'get',
         params,
       })
