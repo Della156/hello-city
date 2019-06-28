@@ -39,14 +39,14 @@ export default {
         },
         {
           id: 'sub',
-          title: '文档',
+          title: '组件',
           icon: 'el-icon-notebook-1',
-          children: [{ id: 'id_2', title: '关于表格', route: '/about' }],
+          children: [{ id: 'id_2', title: '表格分页', route: '/about' }],
         },
         { id: 'tab', title: '笔记', route: '/detail', icon: 'el-icon-set-up' },
         {
           id: 'component',
-          title: '组件',
+          title: '文档',
           route: '/module',
           icon: 'el-icon-s-promotion',
         },
