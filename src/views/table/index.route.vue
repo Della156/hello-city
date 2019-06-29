@@ -1,22 +1,25 @@
 <template>
   <!-- 表格 -->
-  <ice-table-page
-    background
-    tabIndex
-    :data.sync="tableInfo.data"
-    :refresh="tableInfo.refresh"
-    :init-currentPage="tableInfo.initCurrentPage"
-    :api="getListApi"
-    :field-list="tableInfo.fieldList"
-    :handle="tableInfo.handle"
-    @handleClick="handleClick"
-    @handleEvent="handleEvent"
-  />
+  <div class="container">
+    <ice-table-page
+      background
+      tabIndex
+      :data.sync="tableInfo.data"
+      :refresh="tableInfo.refresh"
+      :init-currentPage="tableInfo.initCurrentPage"
+      :api="getListApi"
+      :field-list="tableInfo.fieldList"
+      :handle="tableInfo.handle"
+      @handleClick="handleClick"
+      @handleEvent="handleEvent"
+    />
+  </div>
 </template>
+
 <script>
 export default {
-  name: 'tablePage',
-  title: 'tablePage',
+  name: 'table.route',
+  title: '分页表格',
 
   data() {
     return {
@@ -108,3 +111,13 @@ export default {
   },
 }
 </script>
+
+<style lang="less" scoped>
+.container {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+</style>

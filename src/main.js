@@ -1,38 +1,29 @@
 import icefox from 'icefox'
 
+// 基础接口主机地址
+const baseURL = process.env.app_base_url
+
+// axios 实例配置
 const requestPluginOptions = {
+  baseURL,
   baseParams: {
-    baseUrl: process.env.app_base_url,
+    baseUrl: baseURL,
   },
-  headers: {},
 }
 
-export default {
-  title: 'hello city',
+// element-ui 全局配置
+const elementUIOptions = {}
 
-  created() {
-    // 应用创建完成后的回调
-  },
+// 单页应用的vue实例配置
+export default {
+  title: 'IceFox Demo Site',
 
   plugins: [
-    // 将icefox作为应用插件使用
-    icefox,
-    // 对内置的request插件进行配置
-    ['request', requestPluginOptions],
+    [icefox, elementUIOptions], // 将icefox作为应用插件使用
+    ['request', requestPluginOptions], // 对内置的request插件进行配置
   ],
 
   router: {
-    // vue-router 配置对象
-    mode: 'hash',
-    created(/*router*/) {
-      // 路由器创建完成后的回调
-    },
-  },
-
-  store: {
-    // Vuex Store 配置对象
-    created(/*store*/) {
-      // Store创建完成后的回调
-    },
+    mode: process.env.NODE_ENV === 'production' ? 'history' : 'hash',
   },
 }

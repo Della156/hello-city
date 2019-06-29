@@ -26,4 +26,5 @@ test/unit/coverage
 *.zip
 zip/
 build/
-/deploy.json
+mock/mock.data.json
+mock/mock.output.js

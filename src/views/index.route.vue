@@ -1,23 +1,23 @@
 <template>
   <ice-basic-layout horizontal>
     <!-- 左侧logo+菜单 -->
-    <ice-layout-aside>
+    <ice-layout-aside fixed collapsible>
       <ice-logo-panel slot="header">
         <img slot="logo" src="../assets/logo.png" alt="" />
-        <div slot="title">系统组件组件件</div>
+        <div slot="title">中后台管理系统</div>
       </ice-logo-panel>
-      <ice-aside-menu :menu-items="items" router default-active="id_2" />
+
+      <ice-aside-menu :menu-items="items" router />
     </ice-layout-aside>
 
+    <!-- 右侧主体内容 -->
     <ice-layout>
       <ice-layout-header>
-        <ice-layout horizontal>
-          <ice-aside-trigger />
-        </ice-layout>
-        <i class="el-icon-edit"></i>
-        <i class="el-icon-share"></i>
+        <nav-bar />
       </ice-layout-header>
+
       <ice-layout-content>
+        <!-- 页签路由视图 -->
         <ice-tabs-view transition scrollable />
       </ice-layout-content>
     </ice-layout>
@@ -25,16 +25,20 @@
 </template>
 
 <script>
+import NavBar from '../components/NavBar/index'
+
 export default {
   name: 'index.route',
-  components: {},
+  redirect: '/dashboard',
+  components: { NavBar },
+
   data() {
     return {
       items: [
         {
           id: 'id_1',
           title: '首页',
-          route: '/home',
+          route: '/dashboard',
           icon: 'el-icon-house',
         },
         {
@@ -46,11 +50,10 @@ export default {
         {
           id: 'component',
           title: '组件案例',
-          route: '/module',
           icon: 'el-icon-s-promotion',
           children: [
-            { id: 'id_2', title: 'tablePage', route: '/about' },
-            { id: 'id_3', title: 'datePicker', route: '/datepicker' },
+            { id: 'id_2', title: '分页表格', route: '/table' },
+            { id: 'id_3', title: '日期选择器', route: '/datepicker' },
           ],
         },
         {
