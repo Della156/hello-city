@@ -1,7 +1,7 @@
 <template>
-  <ice-basic-layout horizontal split>
+  <ice-basic-layout horizontal>
     <!-- 左侧logo+菜单 -->
-    <ice-layout-aside fixed collapsible slot="left">
+    <ice-layout-aside fixed collapsible>
       <ice-logo-panel slot="header">
         <img slot="logo" src="../assets/logo.png" alt="" />
         <div slot="title">中后台管理系统</div>
@@ -11,7 +11,7 @@
     </ice-layout-aside>
 
     <!-- 右侧主体内容 -->
-    <ice-layout slot="right">
+    <ice-layout>
       <ice-layout-header>
         <nav-bar />
       </ice-layout-header>
