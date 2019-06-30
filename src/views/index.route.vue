@@ -1,7 +1,7 @@
 <template>
-  <ice-basic-layout horizontal>
+  <ice-basic-layout horizontal split>
     <!-- 左侧logo+菜单 -->
-    <ice-layout-aside fixed collapsible>
+    <ice-layout-aside fixed collapsible slot="left">
       <ice-logo-panel slot="header">
         <img slot="logo" src="../assets/logo.png" alt="" />
         <div slot="title">中后台管理系统</div>
@@ -11,7 +11,7 @@
     </ice-layout-aside>
 
     <!-- 右侧主体内容 -->
-    <ice-layout>
+    <ice-layout slot="right">
       <ice-layout-header>
         <nav-bar />
       </ice-layout-header>
@@ -54,6 +54,7 @@ export default {
           children: [
             { id: 'id_2', title: '分页表格', route: '/table' },
             { id: 'id_3', title: '日期选择器', route: '/datepicker' },
+            { id: 'id_4', title: '分割面板', route: '/split' },
           ],
         },
         {
@@ -64,7 +65,12 @@ export default {
         },
         { id: 'ech', title: '图表', route: '/chart', icon: 'el-icon-s-grid' },
         { id: 'in', title: '引导', route: '/lead', icon: 'el-icon-lollipop' },
-        { id: 'route', title: '路由嵌套', route: '/box', icon: 'el-icon-sugar' },
+        {
+          id: 'route',
+          title: '路由嵌套',
+          route: '/nested',
+          icon: 'el-icon-sugar',
+        },
       ],
     }
   },
