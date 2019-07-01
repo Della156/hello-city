@@ -1,4 +1,5 @@
 import icefox from 'icefox'
+import Cookies from 'js-cookie'
 
 // 基础接口主机地址
 const baseURL = process.env.app_base_url
@@ -25,5 +26,14 @@ export default {
 
   router: {
     mode: process.env.NODE_ENV === 'production' ? 'history' : 'hash',
+    created(router) {
+      router.beforeEach((to, from, next) => {
+        if (to.path !== '/login' && !Cookies.get('token')) {
+          next(`/login?redirect=${to.fullPath}`)
+        } else {
+          next()
+        }
+      })
+    },
   },
 }
