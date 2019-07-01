@@ -1,13 +1,23 @@
 <template>
-  <!-- 表格 -->
   <div class="container">
+    <!-- 条件栏 -->
+    <ice-page-filter
+      :query.sync="filterInfo.query"
+      :filter-list="filterInfo.list"
+      :list-type-info="listTypeInfo"
+      @handleClick="handleClick"
+      @handleEvent="handleEvent"
+    />
+    <!-- 表格 -->
     <ice-page-table
       background
-      tabIndex
+      checkBox
       :data.sync="tableInfo.data"
+      :checked-list="tableInfo.checkedList"
       :refresh="tableInfo.refresh"
       :init-currentPage="tableInfo.initCurrentPage"
       :api="getListApi"
+      :query="filterInfo.query"
       :field-list="tableInfo.fieldList"
       :handle="tableInfo.handle"
       @handleClick="handleClick"
@@ -18,11 +28,64 @@
 
 <script>
 export default {
-  name: 'table.route',
-  title: '分页表格',
+  name: 'tableData',
+  title: '数据管理',
 
   data() {
     return {
+      // 过滤相关配置
+      filterInfo: {
+        query: {
+          name: '',
+          tag_id: '',
+        },
+        list: [
+          {
+            type: 'select',
+            label: '城市',
+            value: 'tag_id',
+            list: 'tagTypeList',
+          },
+          { type: 'input', label: '昵称', value: 'name' },
+          {
+            type: 'button',
+            label: '搜索',
+            btType: 'primary',
+            icon: 'el-icon-search',
+            event: 'search',
+            show: true,
+          },
+          {
+            type: 'button',
+            label: '添加',
+            btType: 'primary',
+            icon: 'el-icon-plus',
+            event: 'create',
+            show: false,
+          },
+          {
+            type: 'button',
+            label: '上传',
+            btType: 'primary',
+            icon: 'el-icon-upload',
+            event: 'upload',
+            show: false,
+          },
+          {
+            type: 'button',
+            label: '导出',
+            btType: 'primary',
+            icon: 'el-icon-download',
+            event: 'export',
+            show: false,
+          }
+        ],
+      },
+      // 相关列表
+      listTypeInfo: {
+        tagTypeList: [],
+      },
+
       // 表格相关
       tableInfo: {
         refresh: 1,
@@ -31,8 +94,9 @@ export default {
         fieldList: [
           { label: '日期', prop: 'date', Width: 180 },
           { label: '姓名', prop: 'name', width: 200 },
-          { label: '地址', prop: 'address' },
+          { label: '城市', prop: 'province' },
         ],
+        checkedList: [],
         handle: {
           fixed: 'right',
           label: '操作',
@@ -62,15 +126,44 @@ export default {
   },
 
   mounted() {
+    this.initList()
     this.getList()
   },
 
   methods: {
+    initList() {
+      const listTypeInfo = this.listTypeInfo
+      this.getAllApi().then((res) => {
+        if (res.status === 200) {
+          listTypeInfo.tagTypeList = res.data.content.map((item, index) => {
+            return {
+              key: item,
+              value: Boolean(index) + 1,
+            }
+          })
+        } else {
+          this.$message({
+            showClose: true,
+            message: '获取城市失败',
+            type: res.status === 200 ? 'success' : 'error',
+            duration: 2000,
+          })
+        }
+      })
+    },
+
     getListApi(params) {
       return this.$http({
-        url: '{baseUrl}/api/article/getList',
+        url: '{baseUrl}/getList',
         method: 'get',
         params,
+      })
+    },
+
+    getAllApi() {
+      return this.$http({
+        url: '{baseUrl}/getCity',
+        method: 'get',
       })
     },
 
@@ -85,6 +178,22 @@ export default {
     handleClick(event, data) {
       const tableInfo = this.tableInfo
       switch (event) {
+        // 搜索
+        case 'search':
+          // 重置分页
+          tableInfo.initCurrentPage = Math.random()
+          tableInfo.refresh = Math.random()
+          break
+        // 创建
+        case 'create':
+          alert('弹出添加框')
+          break
+        case 'upload':
+          alert('弹出上传框')
+          break
+        case 'export':
+          alert('弹出导出框')
+          break
         // 查看和编辑
         case 'view':
           this.$message('查看查看')
@@ -106,18 +215,19 @@ export default {
             this.$set(item, 'statusLoading', false)
           })
           break
+        // 表格的复选框选中事件
+        case 'tableCheck':
+          this.tableInfo.checkedList = data.map((item) => item.name)
+          break
+        // 选中日期时间
+        case 'evnet':
+          alert('选中时间～')
+          break
+
       }
     },
   },
 }
 </script>
 
-<style lang="less" scoped>
-.container {
-  position: absolute;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-}
-</style>
+<style lang="less" scoped></style>

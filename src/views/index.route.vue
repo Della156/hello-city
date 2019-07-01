@@ -18,7 +18,7 @@
 
       <ice-layout-content>
         <!-- 页签路由视图 -->
-        <ice-tabs-view transition scrollable />
+        <ice-tabs-view transition />
       </ice-layout-content>
     </ice-layout>
   </ice-basic-layout>
