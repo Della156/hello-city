@@ -1,7 +1,7 @@
 <template>
   <!-- 表格 -->
   <div class="container">
-    <ice-table-page
+    <ice-page-table
       background
       tabIndex
       :data.sync="tableInfo.data"
