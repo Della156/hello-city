@@ -8,10 +8,10 @@
       @handleClick="handleClick"
       @handleEvent="handleEvent"
     />
-    <!-- 表格 -->
+    <!--    表格 -->
     <ice-page-table
       background
-      checkBox
+      tabIndex
       :data.sync="tableInfo.data"
       :checked-list="tableInfo.checkedList"
       :refresh="tableInfo.refresh"
@@ -61,23 +61,7 @@ export default {
             btType: 'primary',
             icon: 'el-icon-plus',
             event: 'create',
-            show: false,
-          },
-          {
-            type: 'button',
-            label: '上传',
-            btType: 'primary',
-            icon: 'el-icon-upload',
-            event: 'upload',
-            show: false,
-          },
-          {
-            type: 'button',
-            label: '导出',
-            btType: 'primary',
-            icon: 'el-icon-download',
-            event: 'export',
-            show: false,
+            show: true,
           }
         ],
       },
@@ -188,12 +172,6 @@ export default {
         case 'create':
           alert('弹出添加框')
           break
-        case 'upload':
-          alert('弹出上传框')
-          break
-        case 'export':
-          alert('弹出导出框')
-          break
         // 查看和编辑
         case 'view':
           this.$message('查看查看')
@@ -223,11 +201,17 @@ export default {
         case 'evnet':
           alert('选中时间～')
           break
-
       }
     },
   },
 }
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+</style>
