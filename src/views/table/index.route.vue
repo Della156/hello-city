@@ -65,7 +65,7 @@ export default {
           }
         ],
       },
-      // 相关列表
+      // select相关列表
       listTypeInfo: {
         tagTypeList: [],
       },
