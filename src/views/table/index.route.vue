@@ -38,6 +38,7 @@ export default {
         query: {
           name: '',
           tag_id: '',
+          date: ''
         },
         list: [
           {
@@ -62,6 +63,11 @@ export default {
             icon: 'el-icon-plus',
             event: 'create',
             show: true,
+          },
+          {
+            type: 'date',
+            // label: '日期',
+            value: 'date'
           }
         ],
       },

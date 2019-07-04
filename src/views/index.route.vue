@@ -3,8 +3,8 @@
     <!-- 左侧logo+菜单 -->
     <ice-layout-aside fixed collapsible>
       <ice-logo-panel slot="header">
-        <img slot="logo" src="../assets/logo.png" alt="" />
-        <div slot="title">中后台管理系统</div>
+        <img slot="logo" src="../assets/Fire.svg" alt="" />
+        <div slot="title">中台论坛管理系统</div>
       </ice-logo-panel>
 
       <ice-aside-menu :menu-items="items" router />

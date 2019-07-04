@@ -53,7 +53,7 @@
 
       <el-button
         :loading="loading"
-        type="primary"
+        type="danger"
         style="width:100%;margin-bottom:30px;"
         @click.native.prevent="handleLogin"
         >登 录</el-button
@@ -238,7 +238,9 @@ export default {
 .login-container {
   min-height: 100vh;
   width: 100%;
-  background-color: @bg;
+  /*background-color: @bg;*/
+  background: url('../assets/bg.png') no-repeat;
+  background-size: cover;
   overflow: hidden;
   display: flex;
   align-items: center;
