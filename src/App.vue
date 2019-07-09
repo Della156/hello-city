@@ -1,5 +1,5 @@
 <template>
-  <ice-router-view ref="view" transition keep-alive />
+  <ice-router-view ref="view" transition :keep-alive="false" />
 </template>
 
 <script>

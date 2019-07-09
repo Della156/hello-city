@@ -10,7 +10,6 @@
     />
     <!--    表格 -->
     <ice-page-table
-      background
       tabIndex
       :data.sync="tableInfo.data"
       :checked-list="tableInfo.checkedList"
