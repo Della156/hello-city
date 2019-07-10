@@ -9,7 +9,9 @@
       </li>
       <li>
         <a href="https://github.com/utryfe/icefox-site">Demo</a><br /><br />
-        <a href="https://utryfe.github.io/icefox-docs/component/installation.html">在线学习文档2</a>
+        <a href="https://utryfe.github.io/icefox-docs/component/installation.html"
+          >在线学习文档2</a
+        >
       </li>
     </ul>
   </div>

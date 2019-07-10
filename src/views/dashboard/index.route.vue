@@ -185,9 +185,9 @@ export default {
     },
 
     getDate() {
-      const dateId = document.getElementById("date")
+      const dateId = document.getElementById('date')
       dateId.innerText = new Date().toLocaleString()
-    }
+    },
   },
 }
 </script>
