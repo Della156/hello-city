@@ -2,13 +2,13 @@
   <div id="first-Page">
     <div class="dash-board">
       <div class="paper">
-        静
+        靜
+      </div>
+      <div id="date" class="paper">
+        ？？？？？？
       </div>
       <div class="paper">
-        静
-      </div>
-      <div class="paper">
-        静
+        靜
       </div>
     </div>
     <div class="scatter-item">
@@ -34,6 +34,9 @@ export default {
 
   mounted() {
     this.getAnalysis()
+    setInterval(() => {
+      this.getDate()
+    }, 1000)
   },
 
   methods: {
@@ -180,6 +183,11 @@ export default {
         ],
       })
     },
+
+    getDate() {
+      const dateId = document.getElementById("date")
+      dateId.innerText = new Date().toLocaleString()
+    }
   },
 }
 </script>
@@ -227,6 +235,9 @@ export default {
         right: 10px;
         transform: skew(15deg) rotate(4deg);
       }
+    }
+    #date.paper {
+      font-size: 25px;
     }
   }
   .scatter-item {

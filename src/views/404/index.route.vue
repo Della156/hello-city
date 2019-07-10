@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'index.route',
+  name: '404',
 }
 </script>
 

@@ -1,12 +1,12 @@
 <template>
-  <div class="box">
+  <div class="nested">
     <ice-breadcrumb-view />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'box',
+  name: 'nested',
   redirect: 'first',
   title: '路由嵌套',
 }

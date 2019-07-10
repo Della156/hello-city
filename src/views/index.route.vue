@@ -53,18 +53,18 @@ export default {
         },
         { id: 'tab', title: '工作流', route: '/detail', icon: 'el-icon-shopping-bag-1' },
         {
-          id: 'sub',
-          title: '论坛配置',
-          icon: 'el-icon-user'
-        },
-        {
-          id: 'route',
-          title: '文件库',
+          id: 'nested',
+          title: '路由嵌套',
           route: '/nested',
           icon: 'el-icon-folder-opened',
         },
-        { id: 'ech', title: '系统设置', route: '/chart', icon: 'el-icon-setting' },
-        { id: 'in', title: '使用说明', route: '/lead', icon: 'el-icon-question' },
+        { id: 'ech', title: '系统设置', route: '/setting', icon: 'el-icon-setting' },
+        {
+          id: '404',
+          title: '404页面',
+          icon: 'el-icon-warning-outline',
+        },
+        { id: 'in', title: '使用说明', route: '/declare', icon: 'el-icon-question' },
       ],
     }
   },

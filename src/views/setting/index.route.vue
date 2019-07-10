@@ -1,13 +1,13 @@
 <template>
-  <div class="lead">
+  <div class="setting">
     <input />
   </div>
 </template>
 
 <script>
 export default {
-  name: 'lead',
-  title: '引导',
+  name: 'setting',
+  title: '系统设置',
 }
 </script>
 
