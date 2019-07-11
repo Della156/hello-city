@@ -16,7 +16,7 @@
         <nav-bar />
       </ice-layout-header>
 
-      <ice-layout-content>
+      <ice-layout-content scrollable>
         <!-- 页签路由视图 -->
         <ice-tabs-view transition />
       </ice-layout-content>
